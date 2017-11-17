@@ -3,12 +3,13 @@ import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 const originalEmojis = require('../utils/game-utils/emojis').emojis.slice();
 const emojis = originalEmojis.slice();
+
 const initialState = {
     guess: '',
     score: 0,
     emojis: emojis,
     randNum: Math.floor(Math.random() * emojis.length),
-    gameMessage: 'Welcome to Planet Emoji',
+    gameMessage: 'Translate the Phrase!',
     youWin: false
 };
 
@@ -46,8 +47,9 @@ export default class Game extends Component {
     }
 
     restartGame(){
-        let restartedState = Object.assign({}, initialState); 
-        restartedState.emojis = originalEmojis.slice();
+        emojis = originalEmojis.slice();
+        let restartedState = Object.assign({}, initialState);
+        restartedState.randNum = Math.floor(Math.random() * emojis.length);
         this.setState(restartedState);
     }
 
@@ -66,15 +68,16 @@ export default class Game extends Component {
                     (<View style={styles.gamePlay}>
                         <Text style={{color: "#FFF", fontSize: 25, marginBottom: 10}}>{this.state.emojis[this.state.randNum].question}</Text>
                         <TextInput
-                            style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1, margin: 5, textAlign: 'center'}}
+                            style={styles.mainText}
                             onChangeText={(guess) => this.setState({guess})}
                             value={this.state.guess}
                             placeholder="Guess the Phrase!"
+                            placeholderTextColor="#FFFFFF"
                         />
                         <Button
                             onPress={this.checkGuess}
                             title="Make Guess"
-                            color="#841584"
+                            color="#FFFFFF"
                             disabled={this.state.youWin}
                         />
                     </View>)
@@ -83,8 +86,8 @@ export default class Game extends Component {
                 }
 
                 <View style={styles.gameManager}>
-                    <Button style={{marginTop: 100}} onPress={this.restartGame} title="Restart Game">Restart Game</Button>
-                    <Button style={{marginTop: 100}} onPress={() => Actions.pop() } title="Quit Game">Quit Game</Button>
+                    <Button color="#FFFFFF" style={{marginTop: 100}} onPress={this.restartGame} title="Restart Game">Restart Game</Button>
+                    <Button color="#FFFFFF" style={{marginTop: 100}} onPress={() => Actions.pop() } title="Quit Game">Quit Game</Button>
                 </View>
             </View>
             </Image>
@@ -96,28 +99,36 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor:'rgba(185, 185, 185, .5)',
-
-    //   color: 'white',
-      alignItems: 'center',
-    //   justifyContent: 'center',
+      alignItems: 'center'
     },
     gamePlay: {
         borderWidth: 2,
         alignItems: 'center',
-        // justifyContent: 'center',
-        margin: 5
+        margin: 5,
+        backgroundColor:'rgba(100, 100, 100, .6)'
     },
     gameManager: {
         borderWidth: 2,
         alignItems: 'center',
         justifyContent: 'center',
         margin: 5,
-        marginTop: 100
+        marginTop: 100,
+        backgroundColor:'rgba(30, 30, 30, .6)'
     },
     backgroundImage: {
         flex: 1,
         alignSelf: 'stretch',
         width: null,
-      }
+    },
+    mainText: {
+        height: 40, 
+        width: 250, 
+        borderColor: 'gray', 
+        borderWidth: 1, 
+        margin: 5, 
+        textAlign: 'center', 
+        color: '#FFFFFF',
+        backgroundColor: 'rgba(30, 30, 30, .6)'
+    }
   });
   

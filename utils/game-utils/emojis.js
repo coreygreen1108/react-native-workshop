@@ -1,7 +1,7 @@
 export const emojis = [
     {question: '🤐💃', answer: 'shut up and dance'},
     {question: '👨🔛🌙', answer: 'man on the moon'},
-    {question: '☔️🐱➕🐶', answer: 'it\'s raining cats and dogs'},
+    {question: '☔️🐱🐶', answer: 'raining cats and dogs'},
     {question: '🥊🍺❤️', answer: 'punch drunk love'},
     {question: '🚫😭⤴️⤵️💦🥛', answer: 'don\'t cry over spilled milk'},
     {question: '🙏💩', answer: 'holy crap'},
