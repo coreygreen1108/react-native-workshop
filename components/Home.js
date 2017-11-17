@@ -8,7 +8,7 @@ export default class Home extends Component {
             <Image style={styles.backgroundImage} source={require('../assets/globe.png')}>
                 <View style={styles.container}>
                     <View style={styles.box}>
-                        <Text style={{fontSize: 20, color: '#FFFFFF'}}>🌎 Welcome to Emoji Planet 🌎</Text>
+                        <Text style={{fontSize: 20, color: '#FFFFFF'}}>🌎 Welcome to Planet Emoji 🌎</Text>
                         <Button color="#FF0000" style={{fontSize: 40, fontWeight: 'bold'}} onPress={() => Actions.game() } title="Start Game">Start Game</Button>
                     </View>
                 </View>
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     },
     box: {
         borderWidth: 3,
-        borderColor: '#111'
+        borderColor: '#111',
+        backgroundColor:'rgba(30, 30, 30, .6)'
     }
   });
   

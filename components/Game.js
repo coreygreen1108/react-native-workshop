@@ -8,7 +8,7 @@ const initialState = {
     score: 0,
     emojis: emojis,
     randNum: Math.floor(Math.random() * emojis.length),
-    gameMessage: 'Welcome to Emoji Planet',
+    gameMessage: 'Welcome to Planet Emoji',
     youWin: false
 };
 
@@ -30,7 +30,6 @@ export default class Game extends Component {
         else if(this.state.guess.replace(/\W/g, '').toLowerCase() === this.state.emojis[this.state.randNum].answer.replace(/\W/g, '').toLowerCase()){
             emojis.splice(this.state.randNum, 1);
             let randNum = Math.floor(Math.random() * emojis.length);
-            // console.log('random num', Math.floor(Math.random() * emojis.length), 'array length', emojis.length)
             this.setState({
                 score: this.state.score + 10,
                 guess: '',
