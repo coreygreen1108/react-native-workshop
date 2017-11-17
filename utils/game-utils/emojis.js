@@ -7,5 +7,6 @@ export const emojis = [
     {question: '🙏💩', answer: 'holy crap'},
     {question: '👀🐯', answer: 'eye of the tiger'},
     {question: '🐝🐝↔️🚫🐝🐝➡️❓', answer: 'to be or not to be, that is the question'},
-    {question: '🚫☠️🔪➡️💪', answer: 'what doesn\'t kill you makes your stronger'}
+    {question: '🚫☠️🔪➡️💪', answer: 'what doesn\'t kill you makes you stronger'},
+    {question: '🚫🤡🔁', answer: 'stop clowning around'}
 ]
